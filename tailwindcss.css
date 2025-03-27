@@ -959,18 +959,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-.bg-\[url\(\'\/public\/chevron-down\.svg\'\)\] {
-  background-image: url('/public/chevron-down.svg');
-}
-
-.bg-\[url\(\'\/chevron-down\.svg\'\)\] {
-  background-image: url('/chevron-down.svg');
-}
-
-.bg-\[url\(\'\.\/public\/chevron-down\.svg\'\)\] {
-  background-image: url('./public/chevron-down.svg');
-}
-
 .bg-\[url\(\'\.\/assets\/chevron-down\.svg\'\)\] {
   background-image: url('./assets/chevron-down.svg');
 }
@@ -1281,6 +1269,40 @@ body {
 .scroll-fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.partner-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-container::before,
+.partner-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.partner-container::before {
+  left: 0;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.partner-container::after {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .partner-container::before,
+  .partner-container::after {
+    width: 100px;
+    /* Wider blur on larger screens */
+  }
 }
 
 .hover\:bg-\[\#F0E6FF\]:hover {

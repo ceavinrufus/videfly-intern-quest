@@ -6,6 +6,8 @@ Videfly is a project aimed at creating a video streaming platform with advanced 
 
 This document outlines the approach and tools used in the development of the project.
 
+[Live Demo](https://ceavinrufus.me/videfly-intern-quest/)
+
 ---
 
 ## Approach
@@ -13,6 +15,7 @@ This document outlines the approach and tools used in the development of the pro
 1. **Design Slicing**
 
    - Sliced the desktop view design from Figma.
+   - Exported all required assets directly from Figma.
    - Adjusted the styling for mobile and tablet views as there were no specific designs for these in Figma.
 
 2. **Development**
@@ -27,8 +30,18 @@ This document outlines the approach and tools used in the development of the pro
 
 ## Tools and Technologies
 
-- HTML, CSS, JavaScript
-- Tailwind CSS
+The project was developed using tools and technologies that align with the requirements:
+
+- Frontend Development:
+  - HTML5 for structure
+  - CSS3 for styling
+  - JavaScript (ES6+) for interactivity
+- Frameworks:
+  - Tailwind CSS for responsive design
+- Version Control:
+  - Git for source code management
+- Deployment:
+  - GitHub Pages for hosting
 
 ## Getting Started
 
@@ -36,7 +49,7 @@ This document outlines the approach and tools used in the development of the pro
 
    ```bash
    git clone https://github.com/ceavinrufus/videfly-intern-quest
-   cd videfly
+   cd videfly-intern-quest
    ```
 
 2. **Install Dependencies**
