@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Videfly - Platform pembuatan video otomatis menggunakan AI. Ubah URL menjadi video menarik dalam hitungan detik. Tingkatkan engagement bisnis Anda dengan konten video berkualitas."
+    />
+    <title>Videfly</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body class="flex flex-col">
+    <div class="gradient-bg flex flex-col min-h-screen">
+      <!-- Navbar -->
+      <nav
+        class="py-4 px-4 lg:px-[120px] bg-white shadow-[0_6px_45px_-4px_rgba(0,0,0,0.1)]"
+      >
+        <div class="flex justify-between items-center">
+          <img
+            src="/public/videfly-logo.png"
+            alt="Videfly"
+            class="h-8 md:h-10 w-auto"
+          />
+
+          <!-- Mobile Menu Button -->
+          <button title="Menu" type="button" class="lg:hidden" id="menuButton">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-16 6h16"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Desktop Menu -->
+          <ul class="hidden lg:flex w-full justify-center gap-[60px]">
+            <li class="py-2 px-[14px]">
+              <a href="#" class="text-[#545454]">Fitur AI</a>
+            </li>
+            <li class="py-2 px-[14px]">
+              <a href="#" class="text-[#545454]">Cara Kerja</a>
+            </li>
+            <li class="py-2 px-[14px]">
+              <a href="#" class="text-[#545454]">Harga</a>
+            </li>
+            <li class="py-2 px-[14px]">
+              <a href="#" class="text-[#545454]">Support</a>
+            </li>
+          </ul>
+
+          <div
+            class="hidden lg:flex items-center gap-4 w-[238px] flex-shrink-0"
+          >
+            <button
+              class="w-1/2 py-[10px] rounded-[12px] font-semibold text-[#545454] gradient-border border-[1px]"
+              style="
+                background-image: linear-gradient(#f5f5f5, #f5f5f5),
+                  linear-gradient(to bottom, #ededed, #d6d6d6);
+              "
+            >
+              Masuk
+            </button>
+            <button
+              class="w-1/2 py-[10px] text-white rounded-[12px] font-semibold gradient-border border-[2px]"
+              style="
+                background-image: linear-gradient(
+                    to right bottom,
+                    #7f52ff,
+                    #fb8570
+                  ),
+                  linear-gradient(
+                    to right bottom,
+                    rgba(127, 82, 255, 0.9),
+                    rgba(251, 133, 112, 1)
+                  );
+              "
+            >
+              Buat Video
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Sidebar -->
+        <div
+          id="sidebar"
+          class="fixed z-20 inset-y-0 right-0 w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+        >
+          <div class="p-6">
+            <button
+              aria-label="Close"
+              type="button"
+              class="absolute top-4 right-4"
+              id="closeButton"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+            <ul class="space-y-4 mt-8">
+              <li>
+                <a href="#" class="text-[#545454] block py-2">Fitur AI</a>
+              </li>
+              <li>
+                <a href="#" class="text-[#545454] block py-2">Cara Kerja</a>
+              </li>
+              <li><a href="#" class="text-[#545454] block py-2">Harga</a></li>
+              <li><a href="#" class="text-[#545454] block py-2">Support</a></li>
+            </ul>
+            <div class="mt-6 space-y-3">
+              <button
+                class="w-full py-[10px] rounded-[12px] font-semibold text-[#545454] gradient-border border-[1px]"
+                style="
+                  background-image: linear-gradient(#f5f5f5, #f5f5f5),
+                    linear-gradient(to bottom, #ededed, #d6d6d6);
+                "
+              >
+                Masuk
+              </button>
+              <button
+                class="w-full py-[10px] text-white rounded-[12px] font-semibold gradient-border border-[2px]"
+                style="
+                  background-image: linear-gradient(
+                      to right bottom,
+                      #7f52ff,
+                      #fb8570
+                    ),
+                    linear-gradient(
+                      to right bottom,
+                      rgba(127, 82, 255, 0.9),
+                      rgba(251, 133, 112, 1)
+                    );
+                "
+              >
+                Buat Video
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section
+        class="flex-1 flex items-center justify-center px-4 py-8 lg:p-0 scroll-fade-in"
+      >
+        <div
+          class="w-full max-w-[1200px] min-h-[500px] md:h-[689px] rounded-[24px] bg-white flex flex-col md:flex-row gap-8 md:gap-[60px] items-center p-6 md:p-0 md:pl-10"
+        >
+          <div
+            class="flex flex-col justify-start w-full md:w-[558px] md:h-[591px] gap-12 md:gap-24"
+          >
+            <div class="space-y-2 md:space-y-4">
+              <div class="flex flex-col items-center md:items-start gap-3">
+                <div class="badge gradient-border">
+                  <img src="/public/diamond-filled.svg" alt="Diamond" />
+                  <p>Live Demo</p>
+                </div>
+                <h2
+                  class="text-3xl md:text-5xl font-bold font-nunito md:leading-[1.3] text-center md:text-left"
+                >
+                  Coba Fitur URL to Video
+                  <span class="gradient-text-right-bottom">Tanpa Biaya!</span>
+                </h2>
+              </div>
+              <div class="text-sm md:text-base text-center md:text-left">
+                <p class="text-[#545454]">
+                  Masukkan URL, ubah jadi video dalam hitungan detik.
+                </p>
+                <p class="text-[#545454]">Mudah dan gratis!</p>
+              </div>
+            </div>
+            <div class="md:hidden">
+              <img src="/public/hero.webp" alt="Hero" class="w-full h-auto" />
+            </div>
+            <div class="flex flex-col md:flex-row w-full gap-3">
+              <div class="relative w-full">
+                <div
+                  id="urlSelect"
+                  class="flex items-center border border-[#703BE7] py-2 px-4 rounded-[16px] flex-grow h-[50px] appearance-none bg-[url('/public/chevron-down.svg')] bg-no-repeat bg-[center_right_8px] cursor-pointer"
+                >
+                  <img src="/public/link-grey.svg" alt="Link" />
+                  <p
+                    id="selectedUrlText"
+                    class="text-[#B0B0B0] font-medium pl-2 focus:outline-none w-full"
+                  >
+                    Pilih Link URL Product
+                  </p>
+                </div>
+
+                <div
+                  id="urlDropdown"
+                  class="hidden absolute z-10 w-full bg-white border border-[#703BE7] rounded-[16px] mt-1 shadow-lg overflow-hidden"
+                >
+                  <ul id="urlList" class="py-2">
+                    <li
+                      class="px-4 py-2 hover:bg-[#F0E6FF] cursor-pointer"
+                      data-url="https://product1.com"
+                    >
+                      Product 1 URL
+                    </li>
+                    <li
+                      class="px-4 py-2 hover:bg-[#F0E6FF] cursor-pointer"
+                      data-url="https://product2.com"
+                    >
+                      Product 2 URL
+                    </li>
+                    <li
+                      class="px-4 py-2 hover:bg-[#F0E6FF] cursor-pointer"
+                      data-url="https://product3.com"
+                    >
+                      Product 3 URL
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button
+                class="bg-[#703BE7] px-4 py-2 text-white rounded w-full md:w-[116px] rounded-[12.42px] h-[50px]"
+              >
+                Analisa
+              </button>
+            </div>
+          </div>
+          <div class="relative h-full hidden md:block">
+            <img
+              src="/public/hero-circle.svg"
+              alt="Circle"
+              class="absolute right-0 top-0 hidden md:block"
+            />
+            <img
+              src="/public/hero.webp"
+              alt="Hero"
+              class="relative top-1/2 -translate-y-1/2 z-10"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Features Section -->
+    <section
+      class="flex flex-col pt-[131px] pb-[60px] bg-white text-center px-4 lg:px-0 scroll-fade-in"
+    >
+      <div class="flex items-center flex-col gap-[30px]">
+        <div class="badge gradient-border">
+          <img src="/public/diamond-filled.svg" alt="Diamond" />
+          <p>Features</p>
+        </div>
+        <div class="space-y-2 md:space-y-4">
+          <h3
+            class="text-2xl md:text-[40px] font-nunito md:leading-[1.2] font-bold"
+          >
+            Bagaimana Videfly Membantu Bisnismu?
+          </h3>
+          <h3
+            class="text-2xl md:text-[40px] font-nunito md:leading-[1.2] font-bold gradient-text-right-top"
+          >
+            Lebih Efisien, Lebih Mudah, Hasil Maksimal!
+          </h3>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 mt-[30px] md:mt-[91px] gap-3 w-full max-w-[1200px] mx-auto"
+      >
+        <!-- First row: 3 columns -->
+        <div class="bento-card col-span-1 md:col-span-2">
+          <img src="/public/mock-1.png" alt="" class="w-full" />
+          <div class="">
+            <div class="flex item-center gap-3">
+              <img src="/public/link.svg" alt="" />
+              <h4 class="text-base md:text-xl font-nunito font-bold">
+                Buat Video dari URL
+              </h4>
+            </div>
+            <p class="text-sm md:text-base text-[#545454] mt-2">
+              Cukup masukkan tautan produk atau bisnismu, dan Videfly akan
+              otomatis mengambil informasi serta menghasilkan video siap pakai.
+            </p>
+          </div>
+        </div>
+        <div class="bento-card col-span-1 md:col-span-2">
+          <img src="/public/mock-2.png" alt="" class="w-full" />
+          <div class="">
+            <div class="flex item-center gap-3">
+              <img src="/public/carbon_template.svg" alt="" />
+              <h4 class="text-base md:text-xl font-nunito font-bold">
+                Template Siap Pakai
+              </h4>
+            </div>
+            <p class="text-sm md:text-base text-[#545454] mt-2">
+              Tak perlu mendesain dari nol! Gunakan beragam template yang bisa
+              langsung disesuaikan dengan kebutuhan bisnismu.
+            </p>
+          </div>
+        </div>
+        <div class="bento-card col-span-1 md:col-span-2">
+          <img src="/public/mock-3.png" alt="" class="w-full" />
+          <div class="">
+            <div class="flex item-center gap-3">
+              <img src="/public/streamline_ai-edit-spark.svg" alt="" />
+              <h4 class="text-base md:text-xl font-nunito font-bold">
+                Edit Cepat & Fleksibel
+              </h4>
+            </div>
+            <p class="text-sm md:text-base text-[#545454] mt-2">
+              Sesuaikan konten dengan mudah menggunakan Quick Edit. Ubah gambar,
+              musik, atau elemen lainnya tanpa keahlian editing.
+            </p>
+          </div>
+        </div>
+        <!-- Second row: 2 columns -->
+        <div class="bento-card col-span-1 md:col-span-3">
+          <img src="/public/mock-4.png" alt="" class="w-full" />
+          <div class="">
+            <div class="flex item-center gap-3">
+              <img src="/public/chart.svg" alt="" />
+              <h4 class="text-base md:text-xl font-nunito font-bold">
+                Analisis & Rekomendasi Cerdas
+              </h4>
+            </div>
+            <p class="text-sm md:text-base text-[#545454] mt-2">
+              Dapatkan insight performa video dengan Videfly Analytics, lengkap
+              dengan saran improvement untuk konten yang lebih menarik dan
+              efektif.
+            </p>
+          </div>
+        </div>
+        <div class="bento-card col-span-1 md:col-span-3">
+          <img src="/public/mock-5.png" alt="" class="w-full" />
+          <div class="">
+            <div class="flex item-center gap-3">
+              <img src="/public/calendar.svg" alt="" />
+              <h4 class="text-base md:text-xl font-nunito font-bold">
+                Jadwalkan & Posting Otomatis
+              </h4>
+            </div>
+            <p class="text-sm md:text-base text-[#545454] mt-2">
+              Hemat waktu dengan integrasi media sosial! Langsung jadwalkan dan
+              publikasikan kontenmu ke berbagai platform tanpa perlu pindah
+              aplikasi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section
+      id="steps-section"
+      class="text-center pt-[60px] md:pt-[131px] pb-[40px] px-4 lg:px-0 bg-white scroll-fade-in"
+    >
+      <div class="flex items-center flex-col gap-[30px]">
+        <div class="badge gradient-border">
+          <img src="/public/diamond-filled.svg" alt="Diamond" />
+          <p>Tutorial</p>
+        </div>
+        <div class="space-y-2 md:space-y-4">
+          <h3
+            class="text-2xl md:text-[40px] font-nunito md:leading-[1.2] font-bold"
+          >
+            Buat Konten Menarik Untuk Bisnismu
+          </h3>
+          <h3
+            class="text-2xl md:text-[40px] font-nunito md:leading-[1.2] font-bold gradient-text-right-top"
+          >
+            Dalam 3 Langkah Mudah!
+          </h3>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col lg:flex-row items-center gap-8 lg:gap-[55px] mt-[40px] lg:mt-[80px] max-w-[1200px] mx-auto"
+      >
+        <img src="/public/konten-menarik.png" alt="" class="w-full lg:w-1/2" />
+        <div
+          id="steps-container"
+          class="space-y-4 md:space-y-[35px] text-left w-full lg:w-1/2"
+        >
+          <div
+            data-step="1"
+            class="step-item cursor-pointer border-[#E6E6E680] border-[1px] rounded-[24px] flex flex-col justify-center p-4 gap-3"
+          >
+            <p
+              class="text-black font-semibold text-lg md:text-xl md:leading-[1.2]"
+            >
+              Step 1 - Masukkan URL
+            </p>
+            <p class="text-[#545454] text-xs md:text-base lg:text-sm">
+              Cukup Tempelkan tautan produk atau bisnis Anda, dan sistem kami
+              akan secara otomatis mengambil informasi penting untuk memulai.
+            </p>
+          </div>
+
+          <div
+            data-step="2"
+            class="step-item cursor-pointer border-[#E6E6E680] border-[1px] rounded-[24px] flex flex-col justify-center p-4 gap-3"
+          >
+            <p
+              class="text-black font-semibold text-lg md:text-xl md:leading-[1.2]"
+            >
+              Step 2 - Konfirmasi & Personalisasi
+            </p>
+            <p class="text-[#545454] text-xs md:text-base lg:text-sm">
+              Periksa detail produk yang diambil, tambahkan sentuhan unik, dan
+              pilih gaya yang sesuai dengan brand Anda.
+            </p>
+          </div>
+
+          <div
+            data-step="3"
+            class="step-item cursor-pointer border-[#E6E6E680] border-[1px] rounded-[24px] flex flex-col justify-center p-4 gap-3"
+          >
+            <p
+              class="text-black font-semibold text-lg md:text-xl md:leading-[1.2]"
+            >
+              Step 3 - Generate & Dapatkan Hasilnya
+            </p>
+            <p class="text-[#545454] text-xs md:text-base lg:text-sm">
+              Dalam hitungan detik, dapatkan konten bisnis yang siap
+              digunakan—efektif, menarik, dan profesional!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex flex-col bg-white">
+      <!-- Call to Action -->
+      <section
+        class="pt-[60px] md:pt-[137px] pb-[50px] md:pb-[100px] text-center px-4 lg:px-0 scroll-fade-in"
+      >
+        <div
+          class="bg-white border-[#E6E6E6] border-[1px] rounded-[24px] py-6 md:py-10 w-full max-w-[1200px] mx-auto shadow-[0_8px_80px_0px_#2B384C14]"
+        >
+          <div class="flex flex-col items-center gap-6 md:gap-10">
+            <div class="space-y-2 md:space-y-4">
+              <h3
+                class="text-2xl md:text-[40px] font-nunito md:leading-[1.2] font-bold px-4 lg:px-0"
+              >
+                Lebih Produktif, Lebih Untung, Lebih Hemat!
+              </h3>
+              <p
+                class="text-[#545454] mt-2 md:mt-4 text-sm md:text-base px-4 lg:px-0"
+              >
+                Jangan tunggu lagi! Buat video pakai Videfly sekarang.
+              </p>
+            </div>
+            <button
+              class="flex gap-[10px] justify-center items-center p-2 md:p-[10px] rounded-[12px] w-[180px] md:w-[202px]"
+              style="
+                background-image: linear-gradient(
+                  to right bottom,
+                  #7f52ff,
+                  #fb8570
+                );
+              "
+            >
+              <p class="text-white font-semibold text-sm md:text-[18px]">
+                Buat Video
+              </p>
+              <img src="/public/next-filled.svg" alt="Diamond" />
+            </button>
+          </div>
+
+          <div
+            class="grid grid-cols-2 md:grid-cols-3 mt-6 md:mt-8 text-center md:divide-x-[1px] divide-[#B0B0B0] px-4 lg:px-0"
+          >
+            <div class="flex flex-col gap-3 md:gap-6 py-4 md:py-[11px]">
+              <div
+                class="flex items-center justify-center gap-2 md:gap-5 text-[36px] md:text-[76px] font-bold"
+              >
+                <span class="value-gradient-text">0</span>
+                <span class="value-gradient-text">%</span>
+              </div>
+              <p class="text-[#545454] font-medium text-sm md:text-base">
+                Produktivitas meningkat
+              </p>
+            </div>
+            <div class="flex flex-col gap-3 md:gap-6 py-4 md:py-[11px]">
+              <div
+                class="flex items-center justify-center gap-2 md:gap-5 text-[36px] md:text-[76px] font-bold"
+              >
+                <span class="value-gradient-text">0</span>
+                <span class="value-gradient-text">%</span>
+              </div>
+              <p class="text-[#545454] font-medium text-sm md:text-base">
+                Kenaikan ROI
+              </p>
+            </div>
+            <div
+              class="col-span-2 md:col-span-1 flex flex-col gap-3 md:gap-6 py-4 md:py-[11px]"
+            >
+              <div
+                class="flex items-center justify-center gap-2 md:gap-5 text-[36px] md:text-[76px] font-bold"
+              >
+                <span class="value-gradient-text">0</span
+                ><span class="value-gradient-text">x</span>
+              </div>
+              <p class="text-[#545454] font-medium text-sm md:text-base">
+                Lebih Hemat
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="flex flex-col md:flex-row items-center pb-8 md:pb-[85px] justify-between max-w-[1200px] mx-auto gap-6 md:gap-20 lg:gap-[168px] px-4 md:px-6 lg:px-0"
+      >
+        <p
+          class="text-[#545454] text-base lg:text-lg w-full md:w-[120px] lg:w-[240px] text-center md:text-left md:flex-shrink-0"
+        >
+          Platform yang didukung:
+        </p>
+        <!-- Partners -->
+        <div class="overflow-hidden w-full relative">
+          <div
+            id="partner-logos"
+            class="partner-logos flex justify-start space-x-8 md:space-x-16"
+          >
+            <img
+              src="/public/tokopedia.svg"
+              alt="tokopedia"
+              class="h-6 md:h-auto"
+            />
+            <img src="/public/shopee.svg" alt="shopee" class="h-6 md:h-auto" />
+            <img
+              src="/public/beauty-haul.svg"
+              alt="beauty"
+              class="h-6 md:h-auto"
+            />
+            <img
+              src="/public/sociolla.svg"
+              alt="sociolla"
+              class="h-6 md:h-auto"
+            />
+            <img src="/public/tiktok.svg" alt="tiktok" class="h-6 md:h-auto" />
+            <img src="/public/lazada.svg" alt="lazada" class="h-6 md:h-auto" />
+            <img src="/public/blibli.svg" alt="blibli" class="h-6 md:h-auto" />
+            <img
+              src="/public/tokopedia.svg"
+              alt="tokopedia"
+              class="h-6 md:h-auto"
+            />
+            <img src="/public/shopee.svg" alt="shopee" class="h-6 md:h-auto" />
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Sidebar
+        const menuButton = document.getElementById("menuButton");
+        const closeButton = document.getElementById("closeButton");
+        const sidebar = document.getElementById("sidebar");
+
+        menuButton.addEventListener("click", () => {
+          sidebar.classList.remove("translate-x-full");
+        });
+
+        closeButton.addEventListener("click", () => {
+          sidebar.classList.add("translate-x-full");
+        });
+
+        const urlSelect = document.getElementById("urlSelect");
+        const urlDropdown = document.getElementById("urlDropdown");
+        const selectedUrlText = document.getElementById("selectedUrlText");
+        const urlList = document.getElementById("urlList");
+
+        // Toggle dropdown
+        urlSelect.addEventListener("click", () => {
+          urlDropdown.classList.toggle("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+          if (
+            !urlSelect.contains(event.target) &&
+            !urlDropdown.contains(event.target)
+          ) {
+            urlDropdown.classList.add("hidden");
+          }
+        });
+
+        // Handle URL selection
+        urlList.addEventListener("click", (event) => {
+          const selectedItem = event.target.closest("li");
+          if (selectedItem) {
+            const selectedUrl = selectedItem.dataset.url;
+            const selectedText = selectedItem.textContent;
+
+            // Update selected text
+            selectedUrlText.textContent = selectedText;
+            selectedUrlText.classList.remove("text-[#B0B0B0]");
+            selectedUrlText.classList.add("text-black");
+
+            // Optional: Add a data attribute to store the selected URL
+            urlSelect.setAttribute("data-selected-url", selectedUrl);
+
+            // Close dropdown
+            urlDropdown.classList.add("hidden");
+          }
+        });
+
+        // Steps
+        const stepsContainer = document.getElementById("steps-container");
+        const stepItems = stepsContainer.querySelectorAll(".step-item");
+        let currentStep = 0;
+        let autoplayInterval;
+
+        const setActiveStep = (index) => {
+          // Remove active state from all steps
+          stepItems.forEach((item) => {
+            item.classList.remove("active-step");
+            item.classList.remove("gradient-border");
+            item.style.backgroundImage = "none";
+            item.classList.add("border-[#E6E6E680]");
+          });
+
+          // Add active state to current step
+          stepItems[index].classList.add("active-step");
+          stepItems[index].classList.add("gradient-border");
+          stepItems[index].style.backgroundImage =
+            "linear-gradient(#ffffff, #ffffff), linear-gradient(to bottom, #eee2ff, #9747ff)";
+          stepItems[index].classList.remove("border-[#E6E6E680]");
+        };
+
+        const startAutoplay = () => {
+          autoplayInterval = setInterval(() => {
+            currentStep = (currentStep + 1) % stepItems.length;
+            setActiveStep(currentStep);
+          }, 3000);
+        };
+
+        // Handle click events
+        stepItems.forEach((step, index) => {
+          step.addEventListener("click", () => {
+            clearInterval(autoplayInterval);
+            currentStep = index;
+            setActiveStep(currentStep);
+            startAutoplay();
+          });
+        });
+
+        // Set initial active state and start autoplay
+        setActiveStep(currentStep);
+        startAutoplay();
+
+        // Scroll Animation Logic
+        const scrollFadeElements = document.querySelectorAll(".scroll-fade-in");
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        scrollFadeElements.forEach((element) => {
+          observer.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>
