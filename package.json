@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "live-server --port=3000",
-    "watch": "npx tailwindcss -i ./styles.css -o ./public/styles.css --watch"
+    "watch": "npx tailwindcss -i ./styles.css -o ./tailwindcss.css --watch"
   },
   "keywords": [],
   "author": "",

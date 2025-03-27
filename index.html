@@ -7,7 +7,6 @@
       name="description"
       content="Videfly - Platform pembuatan video otomatis menggunakan AI. Ubah URL menjadi video menarik dalam hitungan detik. Tingkatkan engagement bisnis Anda dengan konten video berkualitas."
     />
-    <title>Videfly</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -16,7 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/public/styles.css" />
+    <link rel="stylesheet" href="tailwindcss.css" />
+    <title>Videfly</title>
   </head>
   <body class="flex flex-col">
     <div class="gradient-bg flex flex-col min-h-screen">
@@ -26,7 +26,7 @@
       >
         <div class="flex justify-between items-center">
           <img
-            src="/public/videfly-logo.png"
+            src="./assets/videfly-logo.png"
             alt="Videfly"
             class="h-8 md:h-10 w-auto"
           />
@@ -177,7 +177,7 @@
             <div class="space-y-2 md:space-y-4">
               <div class="flex flex-col items-center md:items-start gap-3">
                 <div class="badge gradient-border">
-                  <img src="/public/diamond-filled.svg" alt="Diamond" />
+                  <img src="./assets/diamond-filled.svg" alt="Diamond" />
                   <p>Live Demo</p>
                 </div>
                 <h2
@@ -195,15 +195,15 @@
               </div>
             </div>
             <div class="md:hidden">
-              <img src="/public/hero.webp" alt="Hero" class="w-full h-auto" />
+              <img src="./assets/hero.webp" alt="Hero" class="w-full h-auto" />
             </div>
             <div class="flex flex-col md:flex-row w-full gap-3">
               <div class="relative w-full">
                 <div
                   id="urlSelect"
-                  class="flex items-center border border-[#703BE7] py-2 px-4 rounded-[16px] flex-grow h-[50px] appearance-none bg-[url('/public/chevron-down.svg')] bg-no-repeat bg-[center_right_8px] cursor-pointer"
+                  class="flex items-center border border-[#703BE7] py-2 px-4 rounded-[16px] flex-grow h-[50px] appearance-none bg-[url('./assets/chevron-down.svg')] bg-no-repeat bg-[center_right_8px] cursor-pointer"
                 >
-                  <img src="/public/link-grey.svg" alt="Link" />
+                  <img src="./assets/link-grey.svg" alt="Link" />
                   <p
                     id="selectedUrlText"
                     class="text-[#B0B0B0] font-medium pl-2 focus:outline-none w-full"
@@ -247,12 +247,12 @@
           </div>
           <div class="relative h-full hidden md:block">
             <img
-              src="/public/hero-circle.svg"
+              src="./assets/hero-circle.svg"
               alt="Circle"
               class="absolute right-0 top-0 hidden md:block"
             />
             <img
-              src="/public/hero.webp"
+              src="./assets/hero.webp"
               alt="Hero"
               class="relative top-1/2 -translate-y-1/2 z-10"
             />
@@ -267,7 +267,7 @@
     >
       <div class="flex items-center flex-col gap-[30px]">
         <div class="badge gradient-border">
-          <img src="/public/diamond-filled.svg" alt="Diamond" />
+          <img src="./assets/diamond-filled.svg" alt="Diamond" />
           <p>Features</p>
         </div>
         <div class="space-y-2 md:space-y-4">
@@ -289,10 +289,10 @@
       >
         <!-- First row: 3 columns -->
         <div class="bento-card col-span-1 md:col-span-2">
-          <img src="/public/mock-1.png" alt="" class="w-full" />
+          <img src="./assets/mock-1.png" alt="" class="w-full" />
           <div class="">
             <div class="flex item-center gap-3">
-              <img src="/public/link.svg" alt="" />
+              <img src="./assets/link.svg" alt="" />
               <h4 class="text-base md:text-xl font-nunito font-bold">
                 Buat Video dari URL
               </h4>
@@ -304,10 +304,10 @@
           </div>
         </div>
         <div class="bento-card col-span-1 md:col-span-2">
-          <img src="/public/mock-2.png" alt="" class="w-full" />
+          <img src="./assets/mock-2.png" alt="" class="w-full" />
           <div class="">
             <div class="flex item-center gap-3">
-              <img src="/public/carbon_template.svg" alt="" />
+              <img src="./assets/carbon_template.svg" alt="" />
               <h4 class="text-base md:text-xl font-nunito font-bold">
                 Template Siap Pakai
               </h4>
@@ -319,10 +319,10 @@
           </div>
         </div>
         <div class="bento-card col-span-1 md:col-span-2">
-          <img src="/public/mock-3.png" alt="" class="w-full" />
+          <img src="./assets/mock-3.png" alt="" class="w-full" />
           <div class="">
             <div class="flex item-center gap-3">
-              <img src="/public/streamline_ai-edit-spark.svg" alt="" />
+              <img src="./assets/streamline_ai-edit-spark.svg" alt="" />
               <h4 class="text-base md:text-xl font-nunito font-bold">
                 Edit Cepat & Fleksibel
               </h4>
@@ -335,10 +335,10 @@
         </div>
         <!-- Second row: 2 columns -->
         <div class="bento-card col-span-1 md:col-span-3">
-          <img src="/public/mock-4.png" alt="" class="w-full" />
+          <img src="./assets/mock-4.png" alt="" class="w-full" />
           <div class="">
             <div class="flex item-center gap-3">
-              <img src="/public/chart.svg" alt="" />
+              <img src="./assets/chart.svg" alt="" />
               <h4 class="text-base md:text-xl font-nunito font-bold">
                 Analisis & Rekomendasi Cerdas
               </h4>
@@ -351,10 +351,10 @@
           </div>
         </div>
         <div class="bento-card col-span-1 md:col-span-3">
-          <img src="/public/mock-5.png" alt="" class="w-full" />
+          <img src="./assets/mock-5.png" alt="" class="w-full" />
           <div class="">
             <div class="flex item-center gap-3">
-              <img src="/public/calendar.svg" alt="" />
+              <img src="./assets/calendar.svg" alt="" />
               <h4 class="text-base md:text-xl font-nunito font-bold">
                 Jadwalkan & Posting Otomatis
               </h4>
@@ -376,7 +376,7 @@
     >
       <div class="flex items-center flex-col gap-[30px]">
         <div class="badge gradient-border">
-          <img src="/public/diamond-filled.svg" alt="Diamond" />
+          <img src="./assets/diamond-filled.svg" alt="Diamond" />
           <p>Tutorial</p>
         </div>
         <div class="space-y-2 md:space-y-4">
@@ -396,7 +396,7 @@
       <div
         class="flex flex-col lg:flex-row items-center gap-8 lg:gap-[55px] mt-[40px] lg:mt-[80px] max-w-[1200px] mx-auto"
       >
-        <img src="/public/konten-menarik.png" alt="" class="w-full lg:w-1/2" />
+        <img src="./assets/konten-menarik.png" alt="" class="w-full lg:w-1/2" />
         <div
           id="steps-container"
           class="space-y-4 md:space-y-[35px] text-left w-full lg:w-1/2"
@@ -483,7 +483,7 @@
               <p class="text-white font-semibold text-sm md:text-[18px]">
                 Buat Video
               </p>
-              <img src="/public/next-filled.svg" alt="Diamond" />
+              <img src="./assets/next-filled.svg" alt="Diamond" />
             </button>
           </div>
 
@@ -545,30 +545,30 @@
             class="partner-logos flex justify-start space-x-8 md:space-x-16"
           >
             <img
-              src="/public/tokopedia.svg"
+              src="./assets/tokopedia.svg"
               alt="tokopedia"
               class="h-6 md:h-auto"
             />
-            <img src="/public/shopee.svg" alt="shopee" class="h-6 md:h-auto" />
+            <img src="./assets/shopee.svg" alt="shopee" class="h-6 md:h-auto" />
             <img
-              src="/public/beauty-haul.svg"
+              src="./assets/beauty-haul.svg"
               alt="beauty"
               class="h-6 md:h-auto"
             />
             <img
-              src="/public/sociolla.svg"
+              src="./assets/sociolla.svg"
               alt="sociolla"
               class="h-6 md:h-auto"
             />
-            <img src="/public/tiktok.svg" alt="tiktok" class="h-6 md:h-auto" />
-            <img src="/public/lazada.svg" alt="lazada" class="h-6 md:h-auto" />
-            <img src="/public/blibli.svg" alt="blibli" class="h-6 md:h-auto" />
+            <img src="./assets/tiktok.svg" alt="tiktok" class="h-6 md:h-auto" />
+            <img src="./assets/lazada.svg" alt="lazada" class="h-6 md:h-auto" />
+            <img src="./assets/blibli.svg" alt="blibli" class="h-6 md:h-auto" />
             <img
-              src="/public/tokopedia.svg"
+              src="./assets/tokopedia.svg"
               alt="tokopedia"
               class="h-6 md:h-auto"
             />
-            <img src="/public/shopee.svg" alt="shopee" class="h-6 md:h-auto" />
+            <img src="./assets/shopee.svg" alt="shopee" class="h-6 md:h-auto" />
           </div>
         </div>
       </footer>

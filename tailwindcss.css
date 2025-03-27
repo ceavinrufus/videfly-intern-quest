@@ -963,6 +963,18 @@ video {
   background-image: url('/public/chevron-down.svg');
 }
 
+.bg-\[url\(\'\/chevron-down\.svg\'\)\] {
+  background-image: url('/chevron-down.svg');
+}
+
+.bg-\[url\(\'\.\/public\/chevron-down\.svg\'\)\] {
+  background-image: url('./public/chevron-down.svg');
+}
+
+.bg-\[url\(\'\.\/assets\/chevron-down\.svg\'\)\] {
+  background-image: url('./assets/chevron-down.svg');
+}
+
 .bg-\[center_right_8px\] {
   background-position: center right 8px;
 }
